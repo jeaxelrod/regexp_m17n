@@ -5,9 +5,7 @@ require_relative '../lib/regexp_m17n'
 class RegexpTest < MiniTest::Unit::TestCase
   def test_non_empty_string
     Encoding.list.each do |enc|
-      unless enc.dummy?
-        assert(RegexpM17N.non_empty?('.'.encode(enc)))
-      end
+      assert(RegexpM17N.non_empty?('.'.encode(enc))) unless enc.dummy?
     end
   end
 end
